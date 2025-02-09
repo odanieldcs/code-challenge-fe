@@ -1,79 +1,70 @@
-# Frontend Code Assessment - To-Do List Application
+# Code Assessment Frontend
 
-![To Do List Application Preview](./source/app.jpg)
+Este é o repositório do frontend para o projeto de avaliação de código. Este projeto foi construído usando React, Zustand, Vite e outras tecnologias modernas.
 
-## Overview
+## Setup Instructions
 
-This repository contains a code challenge for developing a To-Do List web application. The challenge aims to evaluate your frontend development skills, code quality, and attention to design details.
+Para configurar e executar este projeto localmente, siga as etapas abaixo:
 
-## Design Specifications
+1. **Clone o repositório:**
+    ```bash
+    git clone https://github.com/RebecaRose/code-assessment-fe.git
+    cd code-assessment-fe
+    ```
 
-- The complete UI design is available in [Figma File](./source/fe-challenge-todo_list.fig).
-- The design includes all components, states, and interactions.
-- Please ensure pixel-perfect implementation and responsive design.
+2. **Instale as dependências:**
+    ```bash
+    npm install
+    ```
 
-## Core Features
+3. **Execute o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
 
-- Display a list of pending tasks
-- Add new tasks to the list
-- Edit existing tasks
-- Mark tasks as completed
-- View completed tasks in a separate list
+4. **Execute os testes:**
+    ```bash
+    npm run test
+    ```
 
-## Technical Requirements
+5. **Construa o projeto para produção:**
+    ```bash
+    npm run build
+    ```
 
-Required technologies:
+6. **Visualize a versão de produção:**
+    ```bash
+    npm run preview
+    ```
 
-- [React 19](https://react.dev)
-- [TypeScript (v5+)](https://www.typescriptlang.org/)
-- [Vite (v5+)](https://vite.dev/)
-- [React Router (v7+)](https://reactrouter.com/home)
-- [Tailwind CSS (v3+)](https://tailwindcss.com/)
+## Technologies Used
 
-Additional requirements:
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Zustand**: Biblioteca para gerenciamento de estado.
+- **Vite**: Ferramenta de build rápida para projetos modernos de frontend.
+- **React Router**: Biblioteca para roteamento em aplicações React.
+- **Framer Motion**: Biblioteca para animações em React.
+- **React Icons**: Biblioteca de ícones para React.
+- **React Hot Toast**: Biblioteca para notificações em React.
+- **React Loading Skeleton**: Biblioteca para exibir esqueletos de carregamento.
+- **Dnd Kit**: Biblioteca para drag and drop.
+- **Floating UI**: Biblioteca para posicionamento de elementos flutuantes.
+- **Testing Library**: Conjunto de utilitários para testar componentes React.
+- **Vitest**: Framework de testes para Vite.
+- **Tailwind CSS**: Framework de CSS utilitário.
 
-- State management solution (Context API, Zustand, Redux, etc.)
-- Unit testing framework (Vitest, Jest, etc.)
-- Code formatting (Biomejs or ESLint + Prettier)
+## Architecture Decisions
 
-## API Integration
+- **Component-Based Architecture**: O projeto é estruturado em componentes reutilizáveis e modulares.
+- **State Management with Zustand**: Zustand é usado para gerenciamento de estado global, proporcionando uma maneira simples e eficiente de gerenciar o estado da aplicação.
+- **Routing with React Router**: React Router é usado para gerenciar a navegação entre diferentes páginas da aplicação.
+- **Build and Development with Vite**: Vite é usado como ferramenta de build para proporcionar uma experiência de desenvolvimento rápida e eficiente.
 
-While this challenge doesn't require a backend integration, you should structure your code to demonstrate how you would integrate with a REST API.
+## Additional Features Implemented
 
-Create service files that would handle these API calls. You can mock these API calls using local state management and localStorage for persistence.
+- **Tags**: Implementação de tags para categorizar e organizar tarefas.
+- **Página de Not Found**: Página personalizada para exibir quando uma rota não é encontrada.
+- **Drag & Drop**: Funcionalidade de arrastar e soltar para reordenar tarefas.
+- **Empty State**: Exibição de um estado vazio quando não há dados disponíveis.
+- **Loading State**: Exibição de um estado de carregamento enquanto os dados estão sendo buscados.
 
-## Submission Guidelines
-
-- Fork this repository.
-- Create a new branch for your implementation.
-- Submit your commits.
-- Include a README.md with:
-  - Setup instructions.
-  - Technologies used.
-  - Architecture decisions.
-  - Any additional features implemented.
-- Send your public repository for evaluation by email.
-
-## Bonus Points (Optional)
-
-- Technical
-
-  - Implement drag and drop for task reordering
-  - Add E2E tests (Cypress/Playwright)
-  - Add error boundaries
-
-- Features
-
-  - Task due dates
-  - Task categories/tags
-
-- UX/UI
-  - Smooth animations
-  - Loading states
-  - Error states
-  - Empty states
-
-## Time Expectation
-
-- Expected completion time: 5 days
-- Please let us know if you need more time.
