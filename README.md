@@ -1,79 +1,50 @@
-# Frontend Code Assessment - To-Do List Application
+# React + TypeScript + Vite
 
-![To Do List Application Preview](./source/app.jpg)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Overview
+Currently, two official plugins are available:
 
-This repository contains a code challenge for developing a To-Do List web application. The challenge aims to evaluate your frontend development skills, code quality, and attention to design details.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Design Specifications
+## Expanding the ESLint configuration
 
-- The complete UI design is available in [Figma File](./source/fe-challenge-todo_list.fig).
-- The design includes all components, states, and interactions.
-- Please ensure pixel-perfect implementation and responsive design.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## Core Features
+- Configure the top-level `parserOptions` property like this:
 
-- Display a list of pending tasks
-- Add new tasks to the list
-- Edit existing tasks
-- Mark tasks as completed
-- View completed tasks in a separate list
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-## Technical Requirements
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-Required technologies:
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-- [React 19](https://react.dev)
-- [TypeScript (v5+)](https://www.typescriptlang.org/)
-- [Vite (v5+)](https://vite.dev/)
-- [React Router (v7+)](https://reactrouter.com/home)
-- [Tailwind CSS (v3+)](https://tailwindcss.com/)
-
-Additional requirements:
-
-- State management solution (Context API, Zustand, Redux, etc.)
-- Unit testing framework (Vitest, Jest, etc.)
-- Code formatting (Biomejs or ESLint + Prettier)
-
-## API Integration
-
-While this challenge doesn't require a backend integration, you should structure your code to demonstrate how you would integrate with a REST API.
-
-Create service files that would handle these API calls. You can mock these API calls using local state management and localStorage for persistence.
-
-## Submission Guidelines
-
-- Fork this repository.
-- Create a new branch for your implementation.
-- Submit your commits.
-- Include a README.md with:
-  - Setup instructions.
-  - Technologies used.
-  - Architecture decisions.
-  - Any additional features implemented.
-- Send your public repository for evaluation by email.
-
-## Bonus Points (Optional)
-
-- Technical
-
-  - Implement drag and drop for task reordering
-  - Add E2E tests (Cypress/Playwright)
-  - Add error boundaries
-
-- Features
-
-  - Task due dates
-  - Task categories/tags
-
-- UX/UI
-  - Smooth animations
-  - Loading states
-  - Error states
-  - Empty states
-
-## Time Expectation
-
-- Expected completion time: 5 days
-- Please let us know if you need more time.
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
